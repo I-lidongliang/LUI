@@ -1,0 +1,16 @@
+/* utilities */
+
+.is-hover-shadow {
+    &:hover {
+        @include set-box-shadow();
+    }
+}
+
+.is-shadow {
+    @include set-box-shadow();
+}
+
+.is-circle {
+    padding: $padding-circle;
+    border-radius: $border-radius-circle;
+}

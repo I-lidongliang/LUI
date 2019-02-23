@@ -1,0 +1,7 @@
+@mixin set-box-shadow ($box-shadow...) {
+    @if length($box-shadow) == 0 {
+      box-shadow: $box-shadow-base;
+    } @else {
+      box-shadow: $box-shadow;
+    }
+}

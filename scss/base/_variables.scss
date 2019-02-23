@@ -1,0 +1,354 @@
+// Variables
+//
+
+$namespace: "lui" !default;
+//
+// Color system
+//
+
+// stylelint-disable
+$white:    #fff !default;
+$gray-100: #f9f9f9 !default;
+$gray-200: #ddd !default;
+$gray-300: #999 !default;
+$gray-400: #666 !default;
+$gray-500: #333 !default;
+$black:    #000 !default;
+
+$grays: () !default;
+$grays: map-merge((
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500
+), $grays);
+
+$blue:    #45aded !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$colors: () !default;
+$colors: map-merge((
+  "default":    $gray-200,
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "white":      $white,
+  "gray":       $gray-300,
+  "gray-dark":  $gray-500
+), $colors);
+
+$default:       $gray-500 !default;
+$primary:       $blue !default;
+$secondary:     $gray-300 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$dark:          $gray-400 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "dark":       $dark
+), $theme-colors);
+// stylelint-enable
+
+// 颜色转化系数
+$theme-color-interval:      8% !default;
+
+// Spacing
+//
+//通过修改这些来控制大多数素的默认样式
+//主要是修改间距。
+//如果需要更多变化，可以在$spacers地图中添加更多条目。
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 3)
+) !default;
+
+// 在`.h-*` and `.w-*` classes中用.
+
+$sizes: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+);
+
+// Body
+//
+// 设置 `<body>` 元素.
+
+$body-bg:                   $white !default;
+$body-color:                $gray-400 !default;
+
+// Links
+//
+// 锚元素
+
+$link-color:                $primary !default;
+$link-decoration:           none !default;
+$link-hover-color:          darken($link-color, 15%) !default;
+$link-hover-decoration:     underline !default;
+
+$bgcolor-active:            $gray-200 !default;
+
+// Paragraphs
+//
+// 段落间距.
+$paragraph-margin-bottom:   1rem !default;
+
+// Grid breakpoints
+//
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:                12 !default;
+
+// Components
+//
+$font-color-base:             $gray-400 !default; //文章
+$font-color-title:            $gray-500 !default; //标题
+
+$border-width:                1px !default;
+$border-color:                $gray-200 !default;
+
+$border-radius:               4px !default;
+$border-radius-md:            4px !default;
+$border-radius-sm:            3px !default;
+
+$border-radius-circle:        50% !default;
+
+$component-active-color:      $white !default;
+$component-active-bg:         theme-color("primary") !default;
+
+$caret-width:                 .3em !default;
+
+$padding-y-base:              10px !default;
+$padding-x-base:              20px !default;
+
+$padding-y-sm:                9px !default;
+$padding-x-sm:                15px !default;
+
+$padding-circle:              20px !default;
+
+$box-shadow-base:             0 4px 16px rgba(0,0,0,.12) !default;
+
+$transition-base:             all .2s ease-in-out !default;
+$transition-fade:             opacity .15s linear !default;
+$transition-collapse:         height .35s ease !default;
+
+// Options
+//
+$enable-caret:              true !default;
+$enable-rounded:            true !default;
+$enable-shadows:            false !default;
+$enable-gradients:          false !default;
+$enable-transitions:        true !default;
+$enable-hover-media-query:  false !default;
+$enable-grid-classes:       true !default;
+$enable-print-styles:       true !default;
+
+
+// transition
+//
+$transition-base:             all .2s ease-in-out !default;
+$transition-fade:             opacity .15s linear !default;
+$transition-collapse:         height .35s ease !default;
+
+// Fonts
+//
+$font-family-EN:              -apple-system-font,"Helvetica Neue";
+$font-family-CN:              "PingFang SC","Hiragino Sans GB","Microsoft YaHei";
+$font-family-Sans:            sans-serif;
+$font-family-base:            $font-family-EN, $font-family-CN, $font-family-Sans !default;
+// stylelint-enable value-keyword-case
+$font-size-base:              16px !default; // Assumes the browser default, typically `16px`
+$font-size-lg:                ($font-size-base * 1.25) !default;
+$font-size-sm:                ($font-size-base * .875) !default;
+
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+
+$font-weight-base:            $font-weight-normal !default;
+
+$line-height-base:            1.5 !default;
+$line-height-lg:              2 !default;
+$line-height-sm:              1.2 !default;
+
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;
+
+$headings-margin-bottom:      ($spacer / 2) !default;
+$headings-font-family:        inherit !default;
+$headings-font-weight:        500 !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              inherit !default;
+
+$text-muted:                  $gray-300 !default;
+
+$dt-font-weight:              $font-weight-bold !default;
+
+
+// Tables
+//
+$table-cell-padding:          .75rem !default;
+$table-cell-padding-sm:       .3rem !default;
+
+$table-bg:                    transparent !default;
+$table-accent-bg:             rgba($black, .05) !default;
+$table-hover-bg:              rgba($black, .075) !default;
+$table-active-bg:             $table-hover-bg !default;
+
+$table-border-width:          $border-width !default;
+$table-border-color:          $gray-200 !default;
+
+$table-head-bg:               $gray-200 !default;
+$table-head-color:            $gray-500 !default;
+
+$table-dark-bg:               $gray-500 !default;
+$table-dark-accent-bg:        rgba($white, .05) !default;
+$table-dark-hover-bg:         rgba($white, .075) !default;
+$table-dark-border-color:     lighten($gray-500, 7.5%) !default;
+$table-dark-color:            $body-bg !default;
+
+// list
+//
+$list-item-padding-y:          10px !default;
+$list-item-padding-x:          20px !default;
+
+$list-bg:                      $white !default;
+$list-border-width:            $border-width !default;
+$list-border-color:            $border-color !default;
+
+$list-border-radius:           $border-radius !default;
+$list-item-padding-y:         .75rem !default;
+$list-item-padding-x:         1.25rem !default;
+
+$list-hover-bg:               $gray-100 !default;
+$list-active-color:           $component-active-color !default;
+$list-active-bg:              $component-active-bg !default;
+$list-active-border-color:    $list-active-bg !default;
+
+$list-disabled-color:         $gray-300 !default;
+$list-disabled-bg:            $list-bg !default;
+
+$list-action-color:           $gray-500 !default;
+$list-action-hover-color:     $list-action-color !default;
+
+$list-action-active-color:    $body-color !default;
+$list-action-active-bg:       $gray-200 !default;
+// button
+//
+$btn-padding-y:         12px !default;
+$btn-padding-x:         20px !default;
+
+$btn-padding-y-md:      10px !default;
+$btn-padding-x-md:      20px !default;
+
+$btn-padding-y-sm:      9px !default;
+$btn-padding-x-sm:      15px !default;
+
+$btn-padding-circle:    12px !default;
+$btn-padding-circle-md: 8px !default;
+$btn-padding-circle-sm: 6px !default;
+
+$btn-line-height:       1 !default;
+
+$btn-font-weight:       $font-weight-normal !default;
+
+$btn-font-size-base:              14px !default;
+$btn-font-size-md:                $btn-font-size-base !default;
+$btn-font-size-sm:                12px !default;
+
+$btn-color-default:                 $default !default;
+
+$btn-border-color:                  transparent !default;
+
+$btn-border-radius:                 $border-radius !default;
+$btn-border-radius-md:              $border-radius-md !default;
+$btn-border-radius-sm:              $border-radius-sm !default;
+
+$btn-border-radius-round:           20px !default;
+$btn-border-radius-md-round:        $btn-border-radius-round !default;
+$btn-border-radius-sm-round:        $btn-border-radius-round !default;
+
+$btn-border-radius-circle:          $border-radius-circle !default;
+
+$btn-link-disabled-color:           $gray-300 !default;
+
+
+// panel
+//
+$panel-margin-top:       10px !default;
+
+$panel-bgcolor:          $white !default;
+
+// card
+//
+$card-padding-y:         $padding-y-base !default;
+$card-padding-x:         $padding-x-base !default;
+
+$card-title-lh:          $line-height-sm !default;
+
+$card-title-color:       $font-color-title !default;
+$card-subtitle-color:    $gray-300 !default;
+
+$card-title-font-size:       $font-size-base !default;
+$card-subtitle-font-size:    12px !default;
+
+$card-ft-color:          $gray-300 !default;
+
+// media box
+//
+$media-box-color:                $font-color-base !default;
+
+$media-box-title-font-size:      17px !default;
+$media-box-desc-font-size:       13px !default;
+
+$media-box-title-font-weight:    $font-weight-base !default;
+
+$media-box-padding-y:            20px !default;
+$media-box-padding-x:            $padding-x-base !default;

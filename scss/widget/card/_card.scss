@@ -1,0 +1,90 @@
+/* card */
+.#{$namespace}-card {
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: $border-radius;
+    background-color: #fff;
+    background-clip: padding-box;
+    @include set-box-shadow(0px 0px 30px 0px
+        rgba(51, 51, 51, 0.05));
+
+}
+.#{$namespace}-card--shadow {
+    @include set-box-shadow();
+}
+.#{$namespace}-card img {
+    display: block;
+    width: 100%;
+}
+.#{$namespace}-card--hd {
+    display: block;
+    position: relative;
+    padding: 20px;
+
+}
+.#{$namespace}-card--hd_bb {
+    padding: 18px 20px;
+    border-bottom: 1px solid $gray-200;
+}
+.#{$namespace}-card--title {
+    display: block;
+    position: relative;
+    color: $card-title-color;
+    margin: 0;
+    padding: 0;
+    font-size: $card-title-font-size;
+    font-weight: $font-weight-bold;
+    line-height: $card-title-lh;
+}
+.#{$namespace}-card--subtitle {
+    display: block;
+    position: relative;
+    color: $card-subtitle-color;
+    margin: 0;
+    padding: 0;
+    font-size: $card-subtitle-font-size;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+}
+.#{$namespace}-card--title + .#{$namespace}-card--subtitle,
+.#{$namespace}-card--subtitle + .#{$namespace}-card--title  {
+    margin-top: 4px;
+}
+
+.#{$namespace}-card--content {
+    display: block;
+    position: relative;
+    font-size: 14px;
+}
+.#{$namespace}-card--title + .#{$namespace}-card--content,
+.#{$namespace}-card--subtitle + .#{$namespace}-card--content  {
+    margin-top: 10px;
+}
+
+.#{$namespace}-card--content_inner {
+    position: relative;
+    padding: 20px;
+}
+
+.#{$namespace}-card--ft {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    min-height: 44px;
+    padding: 20px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    font-size: 13px;
+    color: $card-ft-color;
+
+    &:before {
+        @include set-top-line();
+    }
+}

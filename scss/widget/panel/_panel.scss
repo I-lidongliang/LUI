@@ -1,0 +1,18 @@
+/* panel */
+.#{$namespace}-panel {
+    position: relative;
+    background-color: $panel-bgcolor;
+    margin-top: $panel-margin-top;
+    overflow: hidden;
+}
+
+.#{$namespace}-panel--hd {
+    padding: 14px 15px 10px;
+    color: $gray-300;
+    font-size: 13px;
+    position: relative;
+
+    &:after {
+        @include set-bottom-line($border-color);
+    }
+}

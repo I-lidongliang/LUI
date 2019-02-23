@@ -1,0 +1,122 @@
+/* button */
+
+.#{$namespace}-btn {
+    display: inline-block;
+    line-height: $btn-line-height;
+    white-space: nowrap;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid $btn-border-color;
+    -webkit-appearance: none;
+    text-align: center;
+    outline: none;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: $btn-padding-y $btn-padding-x;
+    font-size: $btn-font-size-base;
+    border-radius: $btn-border-radius;
+
+    @include hover-focus {
+      text-decoration: none;
+    }
+    &:focus,
+    &.focus {
+      outline: 0;
+    }
+
+    &.disabled,
+    &:disabled {
+      opacity: .65;
+    }
+
+    &:not([disabled]):not(.disabled):active,
+    &:not([disabled]):not(.disabled).active {
+      background-image: none;
+    }
+}
+
+//
+// Link buttons
+//
+.#{$namespace}-btn-link {
+  font-weight: $font-weight-normal;
+  color: $link-color;
+  background-color: transparent;
+
+  @include hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+
+}
+
+.#{$namespace}-btn--default,
+.#{$namespace}-btn-outline--default {
+    color: $btn-color-default;
+    background-color: transparent;
+    border-color: $gray-200;
+
+    &:hover {
+        color: $btn-color-default;
+        background-color: $gray-200;
+        border-color: $gray-200;
+    }
+}
+
+@each $color, $value in $theme-colors {
+  .#{$namespace}-btn--#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .#{$namespace}-btn-outline--#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-500);
+    } @else {
+      @include button-outline-variant($value, $white);
+    }
+  }
+}
+
+.#{$namespace}-btn--md {
+  @include button-size($btn-padding-y-md, $btn-padding-x-md, $btn-font-size-md, $btn-line-height, $btn-border-radius-md, $btn-border-radius-md-round);
+}
+
+.#{$namespace}-btn--sm {
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height, $btn-border-radius-sm, $btn-border-radius-sm-round);
+}
+
+.#{$namespace}-btn.is-circle {
+    padding: $btn-padding-circle;
+    border-radius: $btn-border-radius-circle;
+}
+
+.#{$namespace}-btn--md.is-circle {
+    padding: $btn-padding-circle-md;
+}
+
+.#{$namespace}-btn--sm.is-circle {
+    padding: $btn-padding-circle-sm;
+}
+
+.#{$namespace}-btn.is-round {
+    border-radius: $btn-border-radius-round;
+}

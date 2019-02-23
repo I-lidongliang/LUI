@@ -1,0 +1,45 @@
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns); //确保每列中的内容不会溢出
+}
+
+@mixin make-grid-columns($columns: $grid-columns, $breakpoints: $grid-breakpoints) {
+  %grid-column {
+    position: relative;
+    width: 100%;
+    min-height: 1px; // 防止列在空时折叠
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    @for $i from 1 through $columns {
+      .#{$namespace}-col#{$infix}-#{$i} {
+        @extend %grid-column;
+      }
+    }
+    .#{$namespace}-col#{$infix},
+    .#{$namespace}-col#{$infix}-auto {
+      @extend %grid-column;
+    }
+
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      .#{$namespace}-col#{$infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .#{$namespace}-col#{$infix}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none;
+      }
+
+      @for $i from 1 through $columns {
+        .#{$namespace}-col#{$infix}-#{$i} {
+          @include make-col($i, $columns);
+        }
+      }
+
+    }
+  }
+}
